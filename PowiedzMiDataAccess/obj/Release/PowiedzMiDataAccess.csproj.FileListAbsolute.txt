@@ -1,0 +1,9 @@
+C:\Users\ProtoLab\source\repos\PowiedzMiApi\PowiedzMiDataAccess\bin\Release\PowiedzMiDataAccess.dll.config
+C:\Users\ProtoLab\source\repos\PowiedzMiApi\PowiedzMiDataAccess\bin\Release\PowiedzMiDataAccess.dll
+C:\Users\ProtoLab\source\repos\PowiedzMiApi\PowiedzMiDataAccess\bin\Release\PowiedzMiDataAccess.pdb
+C:\Users\ProtoLab\source\repos\PowiedzMiApi\PowiedzMiDataAccess\bin\Release\EntityFramework.SqlServer.dll
+C:\Users\ProtoLab\source\repos\PowiedzMiApi\PowiedzMiDataAccess\bin\Release\EntityFramework.dll
+C:\Users\ProtoLab\source\repos\PowiedzMiApi\PowiedzMiDataAccess\obj\Release\PowiedzMiDataAccess.csprojAssemblyReference.cache
+C:\Users\ProtoLab\source\repos\PowiedzMiApi\PowiedzMiDataAccess\obj\Release\PowiedzMiDataAccess.csproj.CopyComplete
+C:\Users\ProtoLab\source\repos\PowiedzMiApi\PowiedzMiDataAccess\obj\Release\PowiedzMiDataAccess.dll
+C:\Users\ProtoLab\source\repos\PowiedzMiApi\PowiedzMiDataAccess\obj\Release\PowiedzMiDataAccess.pdb

@@ -1,0 +1,59 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="PowiedzMiModelStoreContainer" CdmEntityContainer="PowiedzMiEntities1">
+    <EntitySetMapping Name="Ankiety">
+      <EntityTypeMapping TypeName="PowiedzMiModel.Ankiety">
+        <MappingFragment StoreEntitySet="Ankiety">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="data" ColumnName="data" />
+          <ScalarProperty Name="id_uzytkownika" ColumnName="id_uzytkownika" />
+          <ScalarProperty Name="komentarz" ColumnName="komentarz" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CzlonekKregu">
+      <EntityTypeMapping TypeName="PowiedzMiModel.CzlonekKregu">
+        <MappingFragment StoreEntitySet="CzlonekKregu">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="id_uzytkownika" ColumnName="id_uzytkownika" />
+          <ScalarProperty Name="id_kregu" ColumnName="id_kregu" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Kregi">
+      <EntityTypeMapping TypeName="PowiedzMiModel.Kregi">
+        <MappingFragment StoreEntitySet="Kregi">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="nazwa" ColumnName="nazwa" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Pytania">
+      <EntityTypeMapping TypeName="PowiedzMiModel.Pytania">
+        <MappingFragment StoreEntitySet="Pytania">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="tresc" ColumnName="tresc" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PytanieWAnkiecie">
+      <EntityTypeMapping TypeName="PowiedzMiModel.PytanieWAnkiecie">
+        <MappingFragment StoreEntitySet="PytanieWAnkiecie">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="id_ankiety" ColumnName="id_ankiety" />
+          <ScalarProperty Name="id_pytanie" ColumnName="id_pytanie" />
+          <ScalarProperty Name="odpowiedz" ColumnName="odpowiedz" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Uzytkownicy">
+      <EntityTypeMapping TypeName="PowiedzMiModel.Uzytkownicy">
+        <MappingFragment StoreEntitySet="Uzytkownicy">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="imie" ColumnName="imie" />
+          <ScalarProperty Name="haslo" ColumnName="haslo" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

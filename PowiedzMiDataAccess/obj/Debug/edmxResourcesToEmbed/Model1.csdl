@@ -1,0 +1,139 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="PowiedzMiModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="Ankiety">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="data" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="id_uzytkownika" Type="Int32" Nullable="false" />
+    <Property Name="komentarz" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" Nullable="false" />
+  </EntityType>
+  <EntityType Name="CzlonekKregu">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="id_uzytkownika" Type="Int32" Nullable="false" />
+    <Property Name="id_kregu" Type="Int32" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Kregi">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="nazwa" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Pytania">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="tresc" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" Nullable="false" />
+  </EntityType>
+  <EntityType Name="PytanieWAnkiecie">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="id_ankiety" Type="Int32" Nullable="false" />
+    <Property Name="id_pytanie" Type="Int32" Nullable="false" />
+    <Property Name="odpowiedz" Type="Int32" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Uzytkownicy">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="imie" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="haslo" Type="String" MaxLength="255" FixedLength="true" Unicode="true" Nullable="false" />
+  </EntityType>
+  <Association Name="FK_Ankiety_Uzytkownicy">
+    <End Role="Uzytkownicy" Type="Self.Uzytkownicy" Multiplicity="1" />
+    <End Role="Ankiety" Type="Self.Ankiety" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Uzytkownicy">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="Ankiety">
+        <PropertyRef Name="id_uzytkownika" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PytanieWAnkiecie_Ankiety">
+    <End Role="Ankiety" Type="Self.Ankiety" Multiplicity="1" />
+    <End Role="PytanieWAnkiecie" Type="Self.PytanieWAnkiecie" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Ankiety">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="PytanieWAnkiecie">
+        <PropertyRef Name="id_ankiety" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CzlonekKregu_Kregi">
+    <End Role="Kregi" Type="Self.Kregi" Multiplicity="1" />
+    <End Role="CzlonekKregu" Type="Self.CzlonekKregu" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Kregi">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="CzlonekKregu">
+        <PropertyRef Name="id_kregu" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CzlonekKregu_Uzytkownicy">
+    <End Role="Uzytkownicy" Type="Self.Uzytkownicy" Multiplicity="1" />
+    <End Role="CzlonekKregu" Type="Self.CzlonekKregu" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Uzytkownicy">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="CzlonekKregu">
+        <PropertyRef Name="id_uzytkownika" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PytanieWAnkiecie_Pytania">
+    <End Role="Pytania" Type="Self.Pytania" Multiplicity="1" />
+    <End Role="PytanieWAnkiecie" Type="Self.PytanieWAnkiecie" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Pytania">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="PytanieWAnkiecie">
+        <PropertyRef Name="id_pytanie" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="PowiedzMiEntities1" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Ankiety" EntityType="Self.Ankiety" />
+    <EntitySet Name="CzlonekKregu" EntityType="Self.CzlonekKregu" />
+    <EntitySet Name="Kregi" EntityType="Self.Kregi" />
+    <EntitySet Name="Pytania" EntityType="Self.Pytania" />
+    <EntitySet Name="PytanieWAnkiecie" EntityType="Self.PytanieWAnkiecie" />
+    <EntitySet Name="Uzytkownicy" EntityType="Self.Uzytkownicy" />
+    <AssociationSet Name="FK_Ankiety_Uzytkownicy" Association="Self.FK_Ankiety_Uzytkownicy">
+      <End Role="Uzytkownicy" EntitySet="Uzytkownicy" />
+      <End Role="Ankiety" EntitySet="Ankiety" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PytanieWAnkiecie_Ankiety" Association="Self.FK_PytanieWAnkiecie_Ankiety">
+      <End Role="Ankiety" EntitySet="Ankiety" />
+      <End Role="PytanieWAnkiecie" EntitySet="PytanieWAnkiecie" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CzlonekKregu_Kregi" Association="Self.FK_CzlonekKregu_Kregi">
+      <End Role="Kregi" EntitySet="Kregi" />
+      <End Role="CzlonekKregu" EntitySet="CzlonekKregu" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CzlonekKregu_Uzytkownicy" Association="Self.FK_CzlonekKregu_Uzytkownicy">
+      <End Role="Uzytkownicy" EntitySet="Uzytkownicy" />
+      <End Role="CzlonekKregu" EntitySet="CzlonekKregu" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PytanieWAnkiecie_Pytania" Association="Self.FK_PytanieWAnkiecie_Pytania">
+      <End Role="Pytania" EntitySet="Pytania" />
+      <End Role="PytanieWAnkiecie" EntitySet="PytanieWAnkiecie" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>
